@@ -1,0 +1,15 @@
+
+# Catálogo de jogos:
+
+- Adedonha/Stop - clássico jogo, na tv a letra é sorteada, nos celulares são liberados os inputs com as categorias.
+Depois de finalizar o jogo, alguem lança um STOP e todos ficam sem poder inserir mais nada. Ai na tv mostra os resultados de cada rodada. Ai as pessoas falam se vale ou não pelo celular. Caso uma resposta seja anulada a pessoa não pontua (ou ganha metade se palavras se repetirem, como é a regra original do stop). A pontuação sai na TV.
+
+- Fibagge - Jogo que mostra um texto e lacunas pra os usuarios preencherem. Os usuarios tentam persuadir os outros a acharem que o termo q eles escreveram é o certo. 
+
+- Codenames - Jogo onde se formam duas equipes e um monte de termos são mostrados na tela. Alguns termos pertencem a uma ou outra equipe, e o obejtivo é um integrante da equipe dar dicas que se relacionem ao termo secreto. Os outros integrantes da equipe julgam e escolhem o termo(s) certos e pontuam ou perdem pontos depedendendo do caso.
+
+- Wavelength - Jogo de duplas (2, 4, 6 pessoas disputando entre si). Um da dupla recebe extremos (frio e calor) e recebe uma faixa de acerto, e a partir disso tenta sugerir algo que fique proiximo dele (ex: numa faixa proxima do "frio" pode sugerir "sorvete"). As duplas q chegarem mais perto do centro da faixa pontuam mais.
+
+- Drawful - Um termo bizarro é liberado para um usuário desenhar. Depois ele é mostrado para outros usuarios e cada um inventa o que o desenho quer dizer. No final da rodada (depois de todos desenharem e sugerirem explicações pro desenhos dos outros), todos tem q tentar acertar qual o termo bizarro correto que representa aquele desenho (eles só sabem a sugestão que eles mesmos deram).
+
+- Cores com dicas - Um quadro de de cores é disponibilizado para os usuarios. Um deles recebe uma cor e precisa trazer significado pra ela (ex: "obsidiana" referecinando uma cor roxa escura). Os outros soltam "pins" no quadro na cor que eles acham que pode ser a correta. Os pins mais proximos da cor correta ganham mais pontos, alem de pontos serem dados pra pessoa que sugeriu a cor.

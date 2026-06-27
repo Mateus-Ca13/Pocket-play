@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /*============= COLORS =============*/
+
+  /* Utilitary Colors */
+  --color-surface: #0e0527;
+  --color-background: #0f0f0f;
+  --color-surface-light: #140836;
+  --color-surface-dark: #070313;
+
+  --color-primary-50: #f6edff;
+  --color-primary-100: #eaddff;
+  --color-primary-200: #d2bbff;
+  --color-primary-300: #ba9aff;
+  --color-primary-400: #a377ff;
+  --color-primary-500: #8c4fff;
+  --color-primary-600: #7423f0;
+  --color-primary-700: #5900c6;
+  --color-primary-800: #3e008e;
+  --color-primary-900: #25005a;
+
+  --color-secondary-50: #ffecf1;
+  --color-secondary-100: #ffd8e6;
+  --color-secondary-200: #ffafd1;
+  --color-secondary-300: #ff81be;
+  --color-secondary-400: #ff42ad;
+  --color-secondary-500: #df1993;
+  --color-secondary-600: #b60076;
+  --color-secondary-700: #8b0059;
+  --color-secondary-800: #63003e;
+  --color-secondary-900: #3d0025;
+
+  --color-tertiary-50: #ffeed8;
+  --color-tertiary-100: #ffdea8;
+  --color-tertiary-200: #fcbb37;
+  --color-tertiary-300: #dda018;
+  --color-tertiary-400: #bd8700;
+  --color-tertiary-500: #9c6f00;
+  --color-tertiary-600: #7c5800;
+  --color-tertiary-700: #5e4200;
+  --color-tertiary-800: #422d00;
+  --color-tertiary-900: #271900;
+
+  /*============= TYPOGRAPHY =============*/
+
+  --font-poppins: 'Poppins', sans-serif;
+
+}
+
+@utility center-row {
+  @apply flex items-center justify-center;
+}
+
+@utility center-col {
+  @apply flex flex-col items-center justify-center;
+}
+
+@utility page-screen-center {
+  @apply flex flex-col bg-linear-to-tr from-surface to-surface/80 items-center justify-center min-h-screen w-full;
+}
+
+@utility page-screen-between {
+  @apply flex flex-col bg-linear-to-tr from-surface to-surface/80 items-center justify-between min-h-screen w-full;
+}
+
+@utility floating-card {
+  @apply p-6 rounded-3xl border-2 border-primary-300;
+  box-shadow: 0px 0px 30px 1px #3e008e;
+}
+
+@utility scrollbar-none {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+
+  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+  }
+}
+
+body {
+  font-family: var(--font-poppins);
+  background: var(--color-background);
+  color: #fff;
+}

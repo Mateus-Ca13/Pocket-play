@@ -1,0 +1,356 @@
+# Pocket Play — Product Overview
+
+## Visão Geral
+
+Pocket Play é uma plataforma de jogos sociais para televisão onde os smartphones dos participantes funcionam como controles e interfaces individuais.
+
+O objetivo é transformar qualquer TV em um ambiente de jogos multiplayer para família e amigos, sem a necessidade de controles físicos ou consoles dedicados.
+
+Os jogadores entram em uma sala utilizando um QR Code ou código de acesso exibido na televisão e participam das partidas diretamente pelo navegador do celular.
+
+---
+
+# Problema
+
+Hoje existem poucas opções para jogos em grupo na sala de estar.
+
+As alternativas normalmente exigem:
+
+* Consoles dedicados
+* Controles físicos
+* Instalação de aplicativos
+* Conhecimento técnico
+
+Além disso, muitos jogos multiplayer modernos são focados em experiências online individuais, reduzindo a interação presencial entre amigos e familiares.
+
+Pocket Play busca resgatar a experiência de jogar juntos na mesma sala utilizando um dispositivo que todos já possuem: o celular.
+
+---
+
+# Proposta de Valor
+
+Transformar qualquer TV em um console de festa instantâneo.
+
+O usuário apenas:
+
+1. Abre o Pocket Play na TV.
+2. Escaneia o QR Code.
+3. Entra na sala.
+4. Começa a jogar.
+
+Sem downloads obrigatórios.
+
+Sem controles.
+
+Sem configuração complexa.
+
+---
+
+# Público-Alvo
+
+## Primário
+
+Famílias
+
+* Reuniões familiares
+* Datas comemorativas
+* Fins de semana
+* Férias
+
+---
+
+## Secundário
+
+Amigos
+
+* Festas
+* Churrascos
+* Encontros
+* Jogos casuais
+
+---
+
+## Terciário
+
+Empresas e instituições
+
+* Dinâmicas de grupo
+* Team building
+* Treinamentos
+* Eventos internos
+
+---
+
+# Conceito Central
+
+Pocket Play não é um único jogo.
+
+Pocket Play é uma plataforma.
+
+A infraestrutura é compartilhada entre diversos jogos.
+
+Os usuários entram na plataforma uma única vez e podem escolher entre vários títulos disponíveis.
+
+---
+
+# Estrutura da Plataforma
+
+## Tela Principal (TV)
+
+Responsável por:
+
+* Exibir menus
+* Criar salas
+* Mostrar QR Codes
+* Exibir partidas
+* Exibir rankings
+* Gerenciar jogadores
+
+---
+
+## Celular
+
+Responsável por:
+
+* Entrar em salas
+* Responder perguntas
+* Votar
+* Desenhar
+* Receber informações secretas
+* Interagir com o jogo
+
+---
+
+## Servidor
+
+Responsável por:
+
+* Gerenciar salas
+* Sincronizar jogadores
+* Controlar partidas
+* Processar pontuações
+* Armazenar progresso
+
+---
+
+# Diferencial
+
+Pocket Play utiliza duas camadas de interação simultâneas:
+
+## Tela Pública
+
+A televisão.
+
+Informações compartilhadas por todos.
+
+Exemplos:
+
+* Perguntas
+* Rankings
+* Cronômetros
+* Tabuleiros
+
+---
+
+## Tela Privada
+
+O celular.
+
+Informações individuais.
+
+Exemplos:
+
+* Respostas secretas
+* Papéis ocultos
+* Cartas
+* Escolhas privadas
+
+Essa combinação permite criar jogos impossíveis em um console tradicional com apenas uma tela.
+
+
+
+---
+
+# Fluxo do Usuário
+
+## Primeiro Acesso
+
+1. Abrir Pocket Play na TV.
+2. Selecionar um jogo.
+3. Criar sala.
+4. Exibir QR Code.
+5. Jogadores entram.
+6. Partida inicia.
+
+Tempo esperado:
+
+Menos de 60 segundos.
+
+---
+
+# Princípios de Design
+
+Pocket Play deve ser:
+
+* Simples
+* Rápido
+* Social
+* Divertido
+* Inclusivo
+
+O usuário não deve precisar aprender regras complexas para começar a jogar.
+
+---
+
+# Estratégia de Crescimento
+
+A plataforma será construída sobre componentes reutilizáveis.
+
+Exemplos:
+
+* Sistema de salas
+* Sistema de votação
+* Sistema de desenho
+* Sistema de perguntas
+* Sistema de ranking
+
+Novos jogos serão criados reaproveitando essas estruturas.
+
+Isso permite aumentar rapidamente o catálogo sem reescrever a plataforma.
+
+---
+
+# Visão de Longo Prazo
+
+Pocket Play busca se tornar uma plataforma de referência para jogos sociais em televisões conectadas.
+
+A visão é permitir que qualquer pessoa transforme sua sala em um ambiente de diversão compartilhada utilizando apenas uma TV e os celulares dos participantes.
+
+Não competir diretamente com consoles tradicionais.
+
+Não substituir videogames.
+
+Mas criar uma nova categoria de entretenimento social acessível, simples e instantânea.
+
+
+Mostrar menos
+
+9:54
+
+
+
+
+
+
+A ideia é boa, mas o primeiro risco técnico/produto é claro: você descreveu uma plataforma, mas ainda não descreveu o primeiro jogo.
+Isso importa porque “plataforma de jogos” cedo demais vira abstração vazia. Sala, QR Code, celular como controle, ranking e tempo real só ficam bem desenhados quando um jogo real força as regras.
+Minha crítica inicial: o MVP não deve ser “Pocket Play com vários jogos”. O MVP deve ser:
+Pocket Play + 1 jogo muito simples + infraestrutura reutilizável mínima.
+Primeira decisão:
+Qual deve ser o primeiro jogo?
+Antes de eu sugerir, quero tua hipótese. Escolha uma direção:
+Quiz rápido
+Mais simples tecnicamente. Bom para validar sala, QR Code, respostas, pontuação e ranking.
+
+Votação social estilo festa
+Mais divertido socialmente. Valida escolhas privadas, revelação pública e dinâmica de grupo.
+
+Desenho/adivinhação
+Mais marcante, mas tecnicamente mais caro por causa de canvas, sincronização e UX no celular.
+
+Minha pergunta: qual desses você acha que deveria ser o primeiro jogo do Pocket Play, e por quê?
+
+9:55
+
+
+
+
+
+
+Bem, eu já tenho algumas ideias de apps sim. podemos trabalhar em cima disso. 
+
+Catálogo de jogos:
+
+Adedonha/Stop - clássico jogo, na tv a letra é sorteada, nos celulares são liberados os inputs com as categorias.
+Depois de finalizar o jogo, alguem lança um STOP e todos ficam sem poder inserir mais nada. Ai na tv mostra os resultados de cada rodada. Ai as pessoas falam se vale ou não pelo celular. Caso uma resposta seja anulada a pessoa não pontua (ou ganha metade se palavras se repetirem, como é a regra original do stop). A pontuação sai na TV.
+
+Fibagge - Jogo que mostra um texto e lacunas pra os usuarios preencherem. Os usuarios tentam persuadir os outros a acharem que o termo q eles escreveram é o certo. 
+
+Codenames - Jogo onde se formam duas equipes e um monte de termos são mostrados na tela. Alguns termos pertencem a uma ou outra equipe, e o obejtivo é um integrante da equipe dar dicas que se relacionem ao termo secreto. Os outros integrantes da equipe julgam e escolhem o termo(s) certos e pontuam ou perdem pontos depedendendo do caso.
+
+Wavelength - Jogo de duplas (2, 4, 6 pessoas disputando entre si). Um da dupla recebe extremos (frio e calor) e recebe uma faixa de acerto, e a partir disso tenta sugerir algo que fique proiximo dele (ex: numa faixa proxima do "frio" pode sugerir "sorvete"). As duplas q chegarem mais perto do centro da faixa pontuam mais.
+
+Drawful - Um termo bizarro é liberado para um usuário desenhar. Depois ele é mostrado para outros usuarios e cada um inventa o que o desenho quer dizer. No final da rodada (depois de todos desenharem e sugerirem explicações pro desenhos dos outros), todos tem q tentar acertar qual o termo bizarro correto que representa aquele desenho (eles só sabem a sugestão que eles mesmos deram).
+
+Cores com dicas - Um quadro de de cores é disponibilizado para os usuarios. Um deles recebe uma cor e precisa trazer significado pra ela (ex: "obsidiana" referecinando uma cor roxa escura). Os outros soltam "pins" no quadro na cor que eles acham que pode ser a correta. Os pins mais proximos da cor correta ganham mais pontos, alem de pontos serem dados pra pessoa que sugeriu a cor.
+
+Numa primeira versão, esses serão os jogos que a plataforma vai ter. Sei q temos bastante trabalho pela frente e confesso q quero aprender mesmo como fazer isso, mesmo podendo ser complexo.
+
+
+Mostrar mais
+
+10:17
+
+
+
+
+
+
+Sim, dá para trabalhar com esse catálogo. Mas vou ser direto no nível staff: essa lista é boa como visão de produto, mas pesada demais como primeira entrega. Se você tentar construir os seis jogos em paralelo, o risco é criar um sistema genérico antes de entender os estados reais dos jogos.
+A decisão correta agora não é “qual catálogo final teremos”. É:
+qual jogo força a arquitetura base com o menor custo?
+Minha leitura inicial:
+Mais simples para MVP: Adedonha/Stop
+Ele valida quase tudo que a plataforma precisa:
+sala com código/QR Code
+jogadores entrando pelo celular
+estado compartilhado na TV
+inputs privados no celular
+travamento da rodada com STOP
+revisão coletiva das respostas
+votação/anulação
+pontuação
+ranking
+Isso é excelente porque não exige desenho, canvas, tabuleiro complexo, times, dicas secretas sofisticadas ou assets pesados. Mas já testa o coração da plataforma.
+Minha recomendação inicial seria:
+MVP 1: Pocket Play com Adedonha/Stop.
+Depois expandimos para Fibbage, porque ele reaproveita sala, rodada, respostas secretas, votação e revelação pública. Só depois eu iria para Drawful ou Cores, porque canvas e interação espacial aumentam bastante a complexidade.
+A arquitetura inicial não deve ser “plataforma perfeita para todos os jogos”. Deve ser algo como:
+Room Engine: cria sala, adiciona jogadores, sincroniza presença.
+Game Session: controla o jogo atual e fase atual.
+Player Controller: interface mobile muda conforme a fase.
+TV Display: tela pública renderiza estado compartilhado.
+Scoring: pontuação específica por jogo, mas com contrato comum.
+Realtime Layer: WebSocket ou equivalente para sincronizar TV e celulares.
+Mas antes de eu desenhar arquitetura, quero te fazer pensar no domínio.
+Primeira pergunta concreta:
+No Adedonha/Stop, quais são os estados/fases da partida?
+Exemplo de raciocínio esperado: lobby, sorteio da letra, preenchimento, stop, revisão, votação, pontuação, ranking...
+Me responde com a tua versão das fases, na ordem. A partir disso eu vou te mostrar onde tua modelagem está boa, onde está frágil e como isso vira arquitetura.
+
+10:17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pedir aprovação
+
+5.5Média
