@@ -1,8 +1,11 @@
 import MotionDiv from '@/shared/components/MotionDiv/MotionDiv';
 import { slideInHeader, withDelay } from '@/shared/motion/presets';
-import { consoleSession } from '@/shared/utils/mockData';
 
-export default function LobbyHeader() {
+type LobbyHeaderProps = {
+  sessionCode: string;
+}
+
+export default function LobbyHeader({ sessionCode }: LobbyHeaderProps) {
   return (
     <MotionDiv
       {...withDelay(slideInHeader, 0.6)}
@@ -16,7 +19,7 @@ export default function LobbyHeader() {
       <div className="flex items-center gap-4">
         <h2>Código da Sessão</h2>
         <p className="text-2xl font-bold rounded-3xl px-4 py-2 bg-secondary-600">
-          {consoleSession.code}
+          {sessionCode}
         </p>
       </div>
     </MotionDiv>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ConsoleConnectionState } from "@/shared/types/connection";
-import { sessionState3 as sessionState } from "@/shared/utils/mockData";
+import { resolveConsoleConnectionApi } from "../api/consoleConnectionApi";
 
 const PLAYER_ID_STORAGE_KEY = 'PLAYER_ID';
 
@@ -20,14 +20,17 @@ export default function useConsoleConnection(sessionCode: string) {
 
             const savedPlayerId = localStorage.getItem(PLAYER_ID_STORAGE_KEY);
 
-            // const response = await api.resolveConsoleConnection({
-            //   sessionCode,
-            //   savedPlayerId,
-            // });
+            const response = await resolveConsoleConnectionApi({
+                sessionCode,
+                savedPlayerId,
+            });
 
-            setState(sessionState.status === 'ready' ? {
-                ...sessionState,
-            } : sessionState);
+            setState(response.status === 'ready' ? {
+                ...response,
+            } : {
+                status: response.status,
+                message: response.message,
+            });
 
         }
         resolveConnection()

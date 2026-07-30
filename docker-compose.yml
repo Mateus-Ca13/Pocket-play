@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: pocket-play-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pocketplay
+      POSTGRES_PASSWORD: pocketplay
+      POSTGRES_DB: pocketplay
+    ports:
+      - "5440:5432"
+    volumes:
+      - pocket-play-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  pocket-play-postgres-data:

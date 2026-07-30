@@ -2,22 +2,22 @@ import { useState } from "react";
 import MobileAvatarCard from "@/shared/components/AvatarCards/MobileAvatarCard";
 import Button from "@/shared/components/Button/Button";
 import SelectableCarousel from "@/shared/components/SelectableCarousel/SelectableCarousel";
-import type { PlayerProfile } from "@/shared/types/player";
+import type { PlayerProfile } from "@pocket-play/contracts";
 
 interface ChoosePlayerSectionProps {
     setStep: (step: 'choose' | 'create' | 'confirm') => void;
+    onSelectPlayer: (playerId: string) => void;
     knownPlayers: PlayerProfile[];
 }
 
-export default function ChoosePlayerSection({ setStep, knownPlayers }: ChoosePlayerSectionProps) {
+export default function ChoosePlayerSection({ setStep, onSelectPlayer, knownPlayers }: ChoosePlayerSectionProps) {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const activePlayer = knownPlayers[selectedIndex];
 
     const handleConfirmPlayer = () => {
         if (activePlayer) {
-            localStorage.setItem('PLAYER_ID', activePlayer.id);
-            setStep('confirm');
+            onSelectPlayer(activePlayer.id);
         }
     };
 
@@ -28,6 +28,7 @@ export default function ChoosePlayerSection({ setStep, knownPlayers }: ChoosePla
 
                 <div className="w-full py-4 overflow-visible flex items-center justify-center">
                     <SelectableCarousel
+                        emptyMessage="Nenhum jogador encontrado"
                         items={knownPlayers}
                         selectedIndex={selectedIndex}
                         onChange={setSelectedIndex}

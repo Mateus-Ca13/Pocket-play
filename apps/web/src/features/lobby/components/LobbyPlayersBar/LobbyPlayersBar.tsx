@@ -1,13 +1,15 @@
-import { players as mockPlayers } from '@/shared/utils/mockData';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { UserPlus2 } from 'lucide-react';
 import PlayerAvatarCard from './PlayerAvatarCard/PlayerAvatarCard';
 import MotionDiv from '@/shared/components/MotionDiv/MotionDiv';
-import type { SessionPlayer } from '@/shared/types/player';
 import { fadeInListItem, fadeInUp, withDelay } from '@/shared/motion/presets';
+import type { SessionPlayer } from '@pocket-play/contracts';
 
-export default function LobbyPlayersBar() {
-  const [players] = useState<SessionPlayer[]>(mockPlayers);
+type LobbyPlayersBarProps = {
+  players: SessionPlayer[];
+}
+
+export default function LobbyPlayersBar({ players }: LobbyPlayersBarProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const haveToScroll = players.length > 4;

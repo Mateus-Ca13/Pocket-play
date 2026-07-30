@@ -11,3 +11,121 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+// ========== Enums ==========
+
+enum ConsoleSessionStatus {
+  LOBBY
+  GAME_SETUP
+  IN_GAME
+}
+
+enum PlayerRole {
+  HOST
+  GUEST
+}
+
+enum GameStatus {
+  AVAILABLE
+  UNAVAILABLE
+}
+
+enum GameSessionStatus {
+  SETUP
+  ACTIVE
+  FINISHED
+  CANCELLED
+}
+
+// ========== Console Device Models ==========
+
+model ConsoleDevice {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  consoleSessions ConsoleSession[]
+  playerProfiles  PlayerProfile[]
+}
+
+model ConsoleSession {
+  id              String               @id @default(uuid())
+  consoleDeviceId String
+  code            String               @unique
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  expiresAt       DateTime
+  status          ConsoleSessionStatus @default(LOBBY)
+
+  consoleDevice  ConsoleDevice   @relation(fields: [consoleDeviceId], references: [id], onDelete: Cascade)
+  gameSessions   GameSession[]
+  playerSessions PlayerSession[]
+}
+
+// ========== Players Models ==========
+
+model PlayerProfile {
+  id              String   @id @default(uuid())
+  name            String
+  avatarKey       String
+  consoleDeviceId String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  consoleDevice    ConsoleDevice     @relation(fields: [consoleDeviceId], references: [id], onDelete: Cascade)
+  playerSessions   PlayerSession[]
+  gamePlayerScores GamePlayerScore[]
+}
+
+model PlayerSession {
+  id               String     @id @default(uuid())
+  playerProfileId  String
+  consoleSessionId String
+  joinedAt         DateTime   @default(now())
+  connected        Boolean    @default(true)
+  role             PlayerRole @default(GUEST)
+
+  playerProfile  PlayerProfile  @relation(fields: [playerProfileId], references: [id], onDelete: Cascade)
+  consoleSession ConsoleSession @relation(fields: [consoleSessionId], references: [id], onDelete: Cascade)
+
+  @@unique([consoleSessionId, playerProfileId])
+}
+
+// ========== Games Models ==========
+
+model Game {
+  id          String     @id
+  title       String
+  imageKey    String
+  description String
+  status      GameStatus @default(UNAVAILABLE)
+
+  gameSessions GameSession[]
+}
+
+model GameSession {
+  id               String            @id @default(uuid())
+  consoleSessionId String
+  gameId           String
+  status           GameSessionStatus @default(SETUP)
+  startedAt        DateTime          @default(now())
+  finishedAt       DateTime?
+
+  consoleSession   ConsoleSession    @relation(fields: [consoleSessionId], references: [id], onDelete: Cascade)
+  game             Game              @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  gamePlayerScores GamePlayerScore[]
+}
+
+model GamePlayerScore {
+  id              String   @id @default(uuid())
+  gameSessionId   String
+  playerProfileId String
+  score           Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  gameSession   GameSession   @relation(fields: [gameSessionId], references: [id], onDelete: Cascade)
+  playerProfile PlayerProfile @relation(fields: [playerProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([gameSessionId, playerProfileId])
+}

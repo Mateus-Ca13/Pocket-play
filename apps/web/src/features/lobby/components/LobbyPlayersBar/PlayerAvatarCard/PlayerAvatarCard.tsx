@@ -1,6 +1,6 @@
 import MotionDiv from '@/shared/components/MotionDiv/MotionDiv';
 import { fadeInListItem, withDelay } from '@/shared/motion/presets';
-import type { SessionPlayer } from '@/shared/types/player';
+import type { SessionPlayer } from '@pocket-play/contracts';
 import { Crown } from 'lucide-react';
 
 type PlayerAvatarCardProps = {
@@ -17,12 +17,12 @@ export default function PlayerAvatarCard({ player, delay }: PlayerAvatarCardProp
     >
       <img
         className="h-14 w-14 aspect-square object-contain border-2 border-secondary-400 bg-secondary-700/20 rounded-2xl"
-        src={`src/assets/avatars/avatar${avatarKey}.png`}
+        src={`/src/assets/avatars/avatar${avatarKey}.png`}
         alt={name}
       />
 
       <p className="text-xl font-semibold truncate flex-1">{name}</p>
-      {role === 'host' && (
+      {role === 'HOST' && (
         <span className=" w-10 h-10 bg-secondary-600 rounded-lg flex items-center justify-center">
           <Crown size={24} />
         </span>

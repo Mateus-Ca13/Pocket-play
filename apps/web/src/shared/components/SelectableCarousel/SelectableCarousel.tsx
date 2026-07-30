@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useTransform, animate } from "motion/react";
+import { motion, useMotionValue, useTransform, animate, type MotionValue, type PanInfo } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface SelectableCarouselProps<T> {
@@ -7,12 +7,13 @@ interface SelectableCarouselProps<T> {
   selectedIndex: number;
   onChange: (index: number) => void;
   renderItem: (item: T, isActive: boolean) => React.ReactNode;
+  emptyMessage?: string;
 }
 
 interface CarouselCardProps<T> {
   item: T;
   index: number;
-  trackX: any;
+  trackX: MotionValue<number>;
   centerOffset: number;
   stepSize: number;
   renderItem: (item: T, isActive: boolean) => React.ReactNode;
@@ -64,6 +65,7 @@ function CarouselCard<T>({
 }
 
 export default function SelectableCarousel<T>({
+  emptyMessage,
   items,
   selectedIndex,
   onChange,
@@ -110,8 +112,6 @@ export default function SelectableCarousel<T>({
     });
   }, [selectedIndex, centerOffset, stepSize, trackX]);
 
-  if (!items || items.length === 0) return null;
-
   const handlePrev = () => {
     if (selectedIndex > 0) {
       onChange(selectedIndex - 1);
@@ -124,7 +124,7 @@ export default function SelectableCarousel<T>({
     }
   };
 
-  const onDragEnd = (_event: any, info: any) => {
+  const onDragEnd = (_event: unknown, info: PanInfo) => {
     const currentX = trackX.get();
     const velocityX = info.velocity.x;
 
@@ -146,6 +146,16 @@ export default function SelectableCarousel<T>({
     left: centerOffset - (items.length - 1) * stepSize,
     right: centerOffset,
   };
+
+  if (items.length === 0) {
+    return (
+      <div className="flex flex-col min-h-32 items-center justify-center w-full select-none overflow-visible">
+        <div className="center-col w-full">
+          <p className="text-sm text-white/50 text-center">{emptyMessage}</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col items-center justify-center w-full select-none overflow-visible">

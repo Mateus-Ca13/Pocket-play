@@ -2,7 +2,8 @@
   "name": "pocket-play",
   "private": true,
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "dev:web": "npm --workspace apps/web run dev",

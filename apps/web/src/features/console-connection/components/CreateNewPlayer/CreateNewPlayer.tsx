@@ -6,22 +6,25 @@ import { useState } from "react";
 
 interface CreateNewPlayerProps {
     setStep: (step: 'choose' | 'create' | 'confirm') => void;
+    onCreateNewPlayer: ({ name, avatarKey }: { name: string, avatarKey: string }) => Promise<void>;
+
 }
 
 const AVATARS = ['1', '2', '3', '4'];
 
-export default function CreateNewPlayer({ setStep }: CreateNewPlayerProps) {
+export default function CreateNewPlayer({ setStep, onCreateNewPlayer }: CreateNewPlayerProps) {
     const [name, setName] = useState('');
     const [avatarKey, setAvatarKey] = useState('1');
     const [error, setError] = useState('');
 
-    const handleConfirm = () => {
-        if (!name.trim()) {
-            setError('Nome é obrigatório');
+
+    const handleConfirm = async () => {
+        if (!name.trim() || name.length > 16) {
+            setError('Nome deve ter entre 1 e 16 caracteres');
             return;
         }
 
-        setStep('confirm');
+        onCreateNewPlayer({ name, avatarKey });
     };
 
     return (

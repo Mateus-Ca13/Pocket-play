@@ -33,11 +33,13 @@ function LobbyPage() {
 
   const session = consoleSession.session;
 
+  console.log(consoleSession);
+
   return (
     <main className="bg-linear-to-tr from-surface to-surface/80 text-white w-full min-h-screen flex flex-col justify-start gap-32">
-      <LobbyHeader />
+      <LobbyHeader sessionCode={session.code} />
       <section className="flex gap-32 items-start justify-between w-full px-12">
-        <LobbyPlayersBar />
+        <LobbyPlayersBar players={consoleSession.players} />
         <JoinLobbySection sessionCode={session.code} />
         <GamesPreviewSection />
       </section>

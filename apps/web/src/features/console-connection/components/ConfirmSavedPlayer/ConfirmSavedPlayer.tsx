@@ -1,15 +1,22 @@
 import MobileAvatarCard from "@/shared/components/AvatarCards/MobileAvatarCard";
 import Button from "@/shared/components/Button/Button";
 import ErrorSection from "@/shared/components/ErrorSection/ErrorSection";
-import type { PlayerProfile } from "@/shared/types/player";
+import type { PlayerProfile } from "@pocket-play/contracts";
 
 interface ConfirmSavedPlayerProps {
     setStep: (step: 'choose' | 'create' | 'confirm') => void;
+    onSelectPlayer: (playerId: string) => void;
     knownPlayers: PlayerProfile[];
     savedPlayerId: string | null;
 }
 
-export default function ConfirmSavedPlayer({ setStep, knownPlayers, savedPlayerId }: ConfirmSavedPlayerProps) {
+export default function ConfirmSavedPlayer({ setStep, onSelectPlayer, knownPlayers, savedPlayerId }: ConfirmSavedPlayerProps) {
+
+    const handleSelectPlayer = () => {
+        if (savedPlayerId) {
+            onSelectPlayer(savedPlayerId);
+        }
+    }
 
     const player = knownPlayers.find((player) => player.id === savedPlayerId)!;
 
@@ -39,7 +46,7 @@ export default function ConfirmSavedPlayer({ setStep, knownPlayers, savedPlayerI
                 <Button
                     variant="lobby"
                     size="medium"
-                    onClick={() => setStep('confirm')}
+                    onClick={handleSelectPlayer}
                 >
                     Entrar como {player.name}
                 </Button>
